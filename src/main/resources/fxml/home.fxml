@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.canvas.Canvas?>
+
+<AnchorPane
+        id="AnchorPane"
+        prefHeight="200"
+        prefWidth="200"
+        xmlns:fx="http://javafx.com/fxml"
+        fx:controller="com.patrykscheffler.world.controllers.Home">
+
+    <children>
+        <Canvas fx:id="map" layoutX="0" layoutY="0" width="800" height="600"/>
+    </children>
+
+</AnchorPane>
