@@ -1,0 +1,82 @@
+* {
+    -fx-font-family: 'Varela Round';
+    -fx-text-fill: #fff;
+    -fx-alignment: center;
+}
+
+#container {
+    -fx-background: #72b764;
+    -fx-pref-width: 250px;
+    -fx-padding: 10px;
+    -fx-spacing: 20px;
+    -fx-font-size: 16px;
+}
+
+#title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.name {
+    -fx-font-weight: bold;
+}
+
+.button {
+    -fx-alignment: center-left;
+    -fx-border-radius: 6px;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-border-color: #fff;
+    -fx-background-color: none;
+    -fx-text-fill: #fff;
+    -fx-fill-width: true;
+    -fx-cursor: pointer;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.nested-button {
+    -fx-padding: 10px 10px 10px 40px;
+}
+
+.button:hover {
+    -fx-background-color: #fff;
+    -fx-text-fill: #000;
+}
+
+.button:hover image {
+    -fx-fill: #000;
+}
+
+.img1 {
+    -fx-padding: 0 0 0 25px;
+    -fx-alignment: center-left;
+}
+
+.img2 {
+    -fx-padding: 0 0 0 30px;
+    -fx-alignment: center-left;
+}
+
+.img3 {
+    -fx-padding: 0 0 0 40px;
+    -fx-alignment: center-left;
+}
+
+.img4 {
+    -fx-padding: 0 0 0 30px;
+    -fx-alignment: center-left;
+}
+
+.combo-box .list-cell  {
+    -fx-text-fill: black;
+}
+
+.combo-box-popup .list-view   {
+    -fx-text-fill: black;
+}
+
+.list-view .list-cell   {
+    -fx-text-fill: black;
+}

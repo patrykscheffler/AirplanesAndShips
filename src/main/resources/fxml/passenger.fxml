@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.ComboBox?>
+
+<VBox stylesheets="/css/main.css"
+      id="container"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.patrykscheffler.world.controllers.PassengerInfo">
+
+    <children>
+        <Label fx:id="title" text="PASSENGER INFO" />
+
+        <HBox>
+            <children>
+                <Label styleClass="name" text="First name: "/>
+                <Label fx:id="firstName" text=""/>
+            </children>
+        </HBox>
+
+        <HBox>
+            <children>
+                <Label styleClass="name" text="Last name: "/>
+                <Label fx:id="secondName" text=""/>
+            </children>
+        </HBox>
+
+        <HBox>
+            <children>
+                <Label styleClass="name" text="Age: "/>
+                <Label fx:id="age" text=""/>
+            </children>
+        </HBox>
+
+        <HBox>
+            <children>
+                <Label styleClass="name" text="PESEL: "/>
+                <Label fx:id="pesel" text=""/>
+            </children>
+        </HBox>
+
+        <HBox>
+            <children>
+                <Label styleClass="name" text="Home: "/>
+                <Label fx:id="home" text=""/>
+            </children>
+        </HBox>
+
+        <HBox>
+            <children>
+                <Label styleClass="name" text="Destination: "/>
+                <Label fx:id="destination" text=""/>
+            </children>
+        </HBox>
+
+        <HBox>
+            <children>
+                <Label styleClass="name" text="Journey type: "/>
+                <Label fx:id="journeyType" text=""/>
+            </children>
+        </HBox>
+    </children>
+
+</VBox>
