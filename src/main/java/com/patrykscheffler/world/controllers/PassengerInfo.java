@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 
 /**
- *
+ * Passenger Info Controller
  */
 public class PassengerInfo {
     @FXML
@@ -23,6 +23,7 @@ public class PassengerInfo {
     @FXML
     private Label journeyType;
 
+    /** Passenger to show info about */
     private Passenger passenger;
 
     public void setPassenger(Passenger passenger) {
@@ -30,6 +31,7 @@ public class PassengerInfo {
         prepareInfo();
     }
 
+    /** Show info from passenger object */
     private void prepareInfo() {
         firstName.setText(passenger.getFirstName());
         secondName.setText(passenger.getSecondName());

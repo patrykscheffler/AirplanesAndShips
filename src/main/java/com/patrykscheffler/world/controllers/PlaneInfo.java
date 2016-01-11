@@ -14,7 +14,7 @@ import javafx.scene.control.ListView;
 import java.util.ArrayList;
 
 /**
- *
+ * Plane Info Controller
  */
 public class PlaneInfo {
     @FXML
@@ -38,17 +38,15 @@ public class PlaneInfo {
     @FXML
     private ListView passengers;
 
+    /** Plane to show info about */
     private Plane plane;
-
-    public PlaneInfo() {
-
-    }
 
     public void setPlane(Plane plane) {
         this.plane = plane;
         prepareInfo();
     }
 
+    /** Show info from plane object */
     private void prepareInfo() {
         if (plane != null) {
             String planeType = plane.getType();
@@ -93,6 +91,7 @@ public class PlaneInfo {
         }
     }
 
+    /** Stop plane / remove */
     public void deletePlane(ActionEvent actionEvent) {
         if (plane != null) {
             plane.stopWorking();
@@ -100,16 +99,19 @@ public class PlaneInfo {
         }
     }
 
+    /** Change end building / destination */
     public void changeEndBuilding(ActionEvent actionEvent) {
         System.out.println("End building changed to " + endAirport.getSelectionModel().getSelectedItem());
         plane.setEndBuilding(World.BUILDINGS.get(endAirport.getSelectionModel().getSelectedItem()));
     }
 
+    /** Change start building / starting point */
     public void changeStartBuilding(ActionEvent actionEvent) {
         System.out.println("Start building changed to " + startAirport.getSelectionModel().getSelectedItem());
         plane.setStartBuilding(World.BUILDINGS.get(startAirport.getSelectionModel().getSelectedItem()));
     }
 
+    /** Emergency landing */
     public void land(ActionEvent actionEvent) {
         if (plane.isEmergencyLanding()) {
             plane.setEmergencyLanding(false);
@@ -120,6 +122,7 @@ public class PlaneInfo {
         }
     }
 
+    /** Shows info about passenger */
     public void openPassengerInfo(Event event) throws Exception {
         int passengerId = passengers.getSelectionModel().getSelectedIndex();
         PassengerPlane plane = (PassengerPlane) this.plane;

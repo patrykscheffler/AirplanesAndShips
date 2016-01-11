@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- *
+ * Building Info Controller
  */
 public class BuildingInfo {
     @FXML
@@ -23,17 +23,15 @@ public class BuildingInfo {
     @FXML
     private ListView boardedVechicles;
 
+    /** Building to show info about */
     private Building building;
-
-    public BuildingInfo() {
-
-    }
 
     public void setBuilding(Building building) {
         this.building = building;
         prepareInfo();
     }
 
+    /** Shows info from building object */
     private void prepareInfo() {
         if (building != null) {
             title.setText("BUILDING INFO");

@@ -13,7 +13,7 @@ import javafx.scene.control.ListView;
 import java.util.ArrayList;
 
 /**
- *
+ * Ship Info Controller
  */
 public class ShipInfo {
     @FXML
@@ -35,17 +35,15 @@ public class ShipInfo {
     @FXML
     private ListView passengers;
 
+    /** Ship to show info about */
     private Ship ship;
-
-    public ShipInfo() {
-
-    }
 
     public void setShip(Ship ship) {
         this.ship = ship;
         prepareInfo();
     }
 
+    /** Show info from ship object */
     private void prepareInfo() {
         if (ship != null) {
             ArrayList<String> harbors = new ArrayList<>();
@@ -77,6 +75,7 @@ public class ShipInfo {
         }
     }
 
+    /** Stop ship / remove */
     public void deleteShip(ActionEvent actionEvent) {
         if (ship != null) {
             ship.stopWorking();
@@ -84,16 +83,19 @@ public class ShipInfo {
         }
     }
 
+    /** Change end building / destination */
     public void changeEndBuilding(ActionEvent actionEvent) {
         System.out.println("End building changed to " + endHarbor.getSelectionModel().getSelectedItem());
         ship.setEndBuilding(World.BUILDINGS.get(endHarbor.getSelectionModel().getSelectedItem()));
     }
 
+    /** Change start building / starting point */
     public void changeStartBuilding(ActionEvent actionEvent) {
         System.out.println("Start building changed to " + startHarbor.getSelectionModel().getSelectedItem());
         ship.setStartBuilding(World.BUILDINGS.get(startHarbor.getSelectionModel().getSelectedItem()));
     }
 
+    /** Show info about passenger */
     public void openPassengerInfo(Event event) throws Exception {
         int passengerId = passengers.getSelectionModel().getSelectedIndex();
         CruiseShip plane = (CruiseShip) this.ship;

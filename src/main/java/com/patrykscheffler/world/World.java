@@ -23,7 +23,7 @@ import static javafx.application.Application.launch;
  */
 public class World extends Application implements Serializable {
 
-    /** Field that enables randomization */
+    /** Enables randomization */
     private final static Random random = new Random();
     /** Graphic of World */
     private final static Image image = new Image(World.class.getResourceAsStream("/img/map.png"));
@@ -44,11 +44,7 @@ public class World extends Application implements Serializable {
     /** Canvas used to draw objects */
     private Canvas map;
 
-    /** Main method for application
-     *
-     * @param primaryStage
-     * @throws Exception
-     */
+    /** Main method for application */
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/home.fxml"));
@@ -149,26 +145,13 @@ public class World extends Application implements Serializable {
         renderer.start();
     }
 
-    /** Rotates image
-     *
-     * @param gc
-     * @param angle Angle to rotate
-     * @param px X coordinate
-     * @param py Y coordinate
-     */
+    /** Rotates image */
     private void rotate(GraphicsContext gc, double angle, double px, double py) {
         Rotate r = new Rotate(angle, px, py);
         gc.setTransform(r.getMxx(), r.getMyx(), r.getMxy(), r.getMyy(), r.getTx(), r.getTy());
     }
 
-    /** Draws Rotated Image
-     *
-     * @param gc
-     * @param image
-     * @param angle
-     * @param tlpx
-     * @param tlpy
-     */
+    /** Draws Rotated Image */
     private void drawRotatedImage(GraphicsContext gc, Image image, double angle, double tlpx, double tlpy) {
         gc.save(); // saves the current state on stack, including the current transform
         rotate(gc, angle, tlpx + image.getWidth() / 2, tlpy + image.getHeight() / 2);
@@ -176,10 +159,7 @@ public class World extends Application implements Serializable {
         gc.restore(); // back to original state (before rotation)
     }
 
-    /** Draws every element
-     *
-     * @param context
-     */
+    /** Draws every element */
     public void draw(GraphicsContext context) {
         for (Building b : BUILDINGS.values()) {
             Image bImg = b.getImage();
@@ -295,7 +275,11 @@ public class World extends Application implements Serializable {
         addPathAndReversePath(CROSSROADS.get("Crossroad7"), BUILDINGS.get("Dorset"));
     }
 
-    /** Creates two paths with the same run but reverse direction */
+    /** Creates two paths with the same run but reverse direction
+     *
+     * @param A Start place
+     * @param B End place
+     */
     private void addPathAndReversePath(Place A, Place B) {
         Path p = new Path(A, B);
         Path rp = p.createReversePath();
@@ -316,7 +300,6 @@ public class World extends Application implements Serializable {
     /** Creates plane info window
      *
      * @param plane Plane object to display
-     * @throws Exception
      */
     private void createPlaneInfo(Plane plane) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/plane.fxml"));
@@ -334,10 +317,7 @@ public class World extends Application implements Serializable {
         secondStage.show();
     }
 
-    /** Creates control panel window
-     *
-     * @throws Exception
-     */
+    /** Creates control panel window */
     private void createControlPanel() throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/control.fxml"));
         Scene secondScene = new Scene(loader.load());
@@ -352,7 +332,6 @@ public class World extends Application implements Serializable {
     /** Creates ship info window
      *
      * @param ship Ship object to display
-     * @throws Exception
      */
     private void createShipInfo(Ship ship) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ship.fxml"));
@@ -373,7 +352,6 @@ public class World extends Application implements Serializable {
     /** Create building info windows
      *
      * @param building Building object to show
-     * @throws Exception
      */
     private void createBuildingInfo(Building building) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/building.fxml"));
@@ -394,7 +372,6 @@ public class World extends Application implements Serializable {
     /** Create passenger info windows
      *
      * @param passenger Passenger object to show
-     * @throws Exception
      */
     public static void createPassengerInfo(Passenger passenger) throws Exception {
         FXMLLoader loader = new FXMLLoader(World.class.getResource("/fxml/passenger.fxml"));

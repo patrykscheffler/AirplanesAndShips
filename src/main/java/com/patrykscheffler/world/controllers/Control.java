@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * Control Panel Controller
  */
 public class Control {
     @FXML
@@ -22,19 +22,23 @@ public class Control {
     @FXML
     private Button togglePath;
 
+    /** Field used to play music */
     private MediaPlayer mediaPlayer;
 
+    /** Constructor, loads music to mediaPlayer */
     public Control() throws URISyntaxException {
         String path = "F:/MusicPlayer/src/musicplayer/adcBicycle_-_02_-_poor_economic_policies.mp3";
         Media media = new Media(Control.class.getResource("/mp3/sound.mp3").toURI().toString());
         mediaPlayer = new MediaPlayer(media);
     }
 
+    /** Create passenger plane */
     public void createPassengerPlane(ActionEvent actionEvent) {
         PassengerPlane plane = new PassengerPlane();
         World.PLANES.put(plane.getName(), plane);
     }
 
+    /** Create military plane */
     public void createMilitaryPlane(ActionEvent actionEvent) {
         boolean bCreate = false;
         ArrayList<AircraftCarrier> list = (ArrayList<AircraftCarrier>) World.getAircraftCarriers();
@@ -58,11 +62,13 @@ public class Control {
         }
     }
 
+    /** Create cruise ship */
     public void createCruiseShip(ActionEvent actionEvent) {
         CruiseShip ship = new CruiseShip();
         World.SHIPS.put(ship.getName(), ship);
     }
 
+    /** Create aircraft carrier */
     public void createAircraftCarrier(ActionEvent actionEvent) {
         AircraftCarrier ship = new AircraftCarrier();
         World.SHIPS.put(ship.getName(), ship);
@@ -86,6 +92,7 @@ public class Control {
         }
     }
 
+    /** Exit application, finishes every vechicle loop */
     public void exitApp(ActionEvent actionEvent) {
         for(Vechicle v : World.PLANES.values()) {
             v.stopWorking();
@@ -97,6 +104,7 @@ public class Control {
         Platform.exit();
     }
 
+    /** Show/hide path */
     public void togglePath(ActionEvent actionEvent) {
         if (World.isShowPaths()) {
             World.setShowPaths(false);
@@ -107,10 +115,12 @@ public class Control {
         }
     }
 
+    /** Save world / Serialization */
     public void saveWorld(ActionEvent actionEvent) {
         World.saveWorld();
     }
 
+    /** Load world / deserialization */
     public void loadWorld(ActionEvent actionEvent) {
         World.loadWorld();
     }
